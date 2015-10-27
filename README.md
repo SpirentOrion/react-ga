@@ -203,6 +203,22 @@ git push...
 npm publish
 ```
 
+#### ga.customtracker(key, value)
+
+Custom dimensions and metrics are a powerful way to send custom data to Google Analytics. Web developers can use custom dimensions and metrics to segment and measure differences between: logged in and logged out users, authors of pages, levels in games, or any other business data you have on a page.
+
+###### Example
+
+```js
+ga.customtracker('dimension1', '10001');
+```
+
+|Value|Notes|
+|------|-----|
+|key|`String`. Custom dimension/metric name e.g. "dimension1"|
+|value|`Number|String`. The value for the custom dimension/metric e.g. "10001"|
+
+
 ---
 
 #### Acknowledgements
