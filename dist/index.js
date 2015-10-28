@@ -206,7 +206,6 @@ var reactGA = {
 
     if (typeof ga === 'function') {
       ga('set', key, value);
-      ga('send');
 
       if (_debug) {
         log('called ga(\'set\', key, value);');
