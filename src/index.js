@@ -131,8 +131,9 @@ var reactGA = {
    * pageview:
    * Basic GA pageview tracking
    * @param  {String} path - the current page page e.g. '/about'
+   * @param {Object} fieldsObject - see https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
    */
-  pageview: function (path) {
+  pageview: function (path, fieldsObject) {
     if (!path) {
       warn('path is required in .pageview()');
       return;
@@ -145,11 +146,18 @@ var reactGA = {
     }
 
     if (typeof ga === 'function') {
-      ga('send', 'pageview', path);
-
-      if (_debug) {
-        log('called ga(\'send\', \'pageview\', path);');
-        log('with path: ' + path);
+      if (fieldsObject) {
+        ga('send', 'pageview', path, fieldsObject);
+        if (_debug) {
+          log('called ga(\'send\', \'pageview\', path, fieldsObject);');
+          log('with: {' + path + ', ' + fieldsObject + '}');
+        }
+      } else {
+        ga('send', 'pageview', path);
+        if (_debug) {
+          log('called ga(\'send\', \'pageview\', path);');
+          log('with path: ' + path);
+        }
       }
     }
   },

@@ -68,12 +68,13 @@ See example above for use with `react-router`.
 ###### Example
 
 ```js
-ga.pageview('/about/contact-us');
+ga.pageview('/about/contact-us', {'dimension0': 'blabla'});
 ```
 
 |Value|Notes|
 |------|-----|
 |path|`String`. e.g. '/get-involved/other-ways-to-help'|
+|fieldsObject|`Object`. see https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference|
 
 See example above for use with `react-router`.
 
