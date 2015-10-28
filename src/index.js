@@ -150,7 +150,7 @@ var reactGA = {
         ga('send', 'pageview', path, fieldsObject);
         if (_debug) {
           log('called ga(\'send\', \'pageview\', path, fieldsObject);');
-          log('with: {' + path + ', ' + fieldsObject + '}');
+          log('with: {' + path + ', ' + JSON.stringify(fieldsObject) + '}');
         }
       } else {
         ga('send', 'pageview', path);
