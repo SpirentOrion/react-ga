@@ -302,6 +302,40 @@ var reactGA = {
     }
   },
 
+  /**
+   * exception:
+   * GA exception tracking
+   * @param args.description {String} optional
+   * @param args.fatal {boolean} optional
+   * @param args.nonInteraction {boolean} optional
+   */
+  exception: function (args) {
+    if (typeof ga === 'function') {
+
+      // Required Fields
+      var fieldObject = {
+        'hitType': 'exception'
+      };
+
+      // Optional Fields
+      if (args.description) {
+        fieldObject.exDescription = format(args.description);
+      }
+
+      if (args.fatal) {
+        fieldObject.exFatal = format(args.fatal);
+      }
+
+      // Send to GA
+      ga('send', fieldObject);
+
+      if (_debug) {
+        log('called ga(\'send\', fieldObject);');
+        log('with fieldObject: ' + JSON.stringify(fieldObject));
+      }
+    }
+  },
+
   plugin: {
     /**
      * require:
