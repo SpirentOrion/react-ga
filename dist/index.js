@@ -307,7 +307,6 @@ var reactGA = {
    * GA exception tracking
    * @param args.description {String} optional
    * @param args.fatal {boolean} optional
-   * @param args.nonInteraction {boolean} optional
    */
   exception: function (args) {
     if (typeof ga === 'function') {

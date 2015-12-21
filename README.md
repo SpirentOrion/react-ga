@@ -124,6 +124,29 @@ ga.event( { category: 'Promotion',
 |args.value|`Int`. Optional. A means of recording a numerical value against an event. E.g. a rating, a score, etc.|
 |args.nonInteraction|`Boolean`. If an event is not triggered by a user interaction, but instead by our code (e.g. on page load, it should be flagged as a nonInteraction event to avoid skewing bounce rate data.|
 
+#### ga.exception(args)
+
+Exception tracking allows you to measure the number and type of crashes or errors that occur on your property.
+
+###### Examples
+
+```js
+try {
+  // Runs code that may or may not work.
+  window.possibiliyUndefinedFunction();
+} catch(err) {
+  ga.exception({
+    description: err.message,
+    fatal: false
+  });
+}
+```
+
+|Value|Notes|
+|------|-----|
+|args.description|`String`. Optional. A description of the exception.|
+|args.fatal|`Boolean`. True if the exception was fatal.|
+
 #### ga.outboundLink(args, hitCallback)
 
 Tracking links out to external URLs (including id.webmaker.org for oAuth2 login flow).
